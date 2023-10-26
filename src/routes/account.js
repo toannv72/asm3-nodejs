@@ -10,6 +10,9 @@ const { authenticatedAdmin } = require('../config/db/authenticatedAdmin')
 routerAccount.route("/admin")
     .get(cookieAuthenticated, authenticatedAdmin, routerTableController.showAll)
 
+routerAccount.route("/information")
+    .put(cookieAuthenticated, routerTableController.putInformation)
+
 routerAccount.route("/")
     .get(cookieAuthenticated, routerTableController.showOne)
     .put(cookieAuthenticated, routerTableController.put)

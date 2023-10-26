@@ -7,6 +7,22 @@ var bcrypt = require('bcryptjs');
 
 class AccountController {
 
+    putInformation(req, res, next){
+        var checkTokenValid = jwt.verify(req.cookies.accessToken, Token.refreshToken);
+        User.findByIdAndUpdate(checkTokenValid.user._id,  req.body )
+            .then((e)=> {
+                User.findById(checkTokenValid.user._id)
+                .then((account) => {
+                    return res.render('view/account',
+                        {
+                            account: mongoosesToObject(account),
+                            login: true,
+                            Message: "Your account has been updated"
+                        })
+                })
+            })
+    }
+
     put(req, res, next) {
         const formData = req.body
         var checkTokenValid = jwt.verify(req.cookies.accessToken, Token.refreshToken);

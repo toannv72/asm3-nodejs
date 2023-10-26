@@ -1,6 +1,7 @@
 
 const { mutipleMongooseToObject, mongoosesToObject } = require('../../util/mongoose');
 const Categories = require('../models/Categories');
+const Orchid = require('../models/Orchid');
 class CategoryController {
 
     put(req, res, next) {
@@ -46,12 +47,28 @@ class CategoryController {
     }
 
     delete(req, res, next) {
-        Categories.findByIdAndDelete(req.params.id)
-            .then((Categories => {
-                res.redirect('/category')
-            }
-            ))
-            .catch(next)
+        Orchid.findOne({ category: req.params.id })
+            .then((Orchid) => {
+                if (Orchid) {
+                    Categories.find()
+                        .then((Categories) => {
+                            return res.render('view/categories',
+                                {
+                                    Categories: mutipleMongooseToObject(Categories),
+                                    input: req.body,
+                                    errorPutName: `không thể xóa vì đã có cây lan có trường này`,
+                                    login: true,
+                                })
+                        })
+                } else {
+                    Categories.findByIdAndDelete(req.params.id)
+                        .then((Categories => {
+                            res.redirect('/category')
+                        }
+                        ))
+                        .catch(next)
+                }
+            });
     }
 
     show(req, res, next) {
