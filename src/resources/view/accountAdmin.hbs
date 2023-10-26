@@ -1,0 +1,60 @@
+<div class="flex flex-col md:flex-row">
+
+    <table class="w-screen border-collapse bg-white text-left text-sm text-gray-500 ">
+        <thead class="bg-gray-300">
+            <tr class="w-screen">
+                <th style="border: 1px solid #a1a1a145;" scope="col" class="px-6 py-4 font-medium text-gray-900">
+                    Username
+                </th>
+                <th style="border: 1px solid #a1a1a145;" scope="col" class="px-6 py-4 font-medium text-gray-900">
+                    Name
+                </th>
+                <th style="border: 1px solid #a1a1a145;" scope="col" class="w-8 px-6 py-4 font-medium text-gray-900">
+                    Yob
+                </th>
+                <th style="border: 1px solid #a1a1a145;" scope="col" class="w-8 px-6 py-4 font-medium text-gray-900">
+                    Admin
+                </th>
+                <th style="border: 1px solid #a1a1a145;" scope="col" class="w-8 px-6 py-4 font-medium text-gray-900">
+                    Password
+                </th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+            {{#each account}}
+            <tr class=" hover:bg-gray-200 " style="border-bottom: 1px solid #a1a1a1a1;">
+
+                <td class="px-6 py-4  w-40  " style="border-right: 1px solid #e5e3e3c8;">
+                    <div class="flex gap-2 overflow-y-auto">
+                        {{this.username}}
+                    </div>
+                </td>
+                <td class="px-6 py-4  w-40  " style="border-right: 1px solid #e5e3e3c8;">
+                    <div class="flex gap-2 overflow-y-auto">
+                        {{this.name}}
+                    </div>
+                </td>
+                <td class="px-6 py-4  w-40  " style="border-right: 1px solid #e5e3e3c8;">
+                    <div class="flex gap-2 overflow-y-auto">
+                        {{this.yob}}
+                    </div>
+                </td>
+                <td class="px-6 py-4  w-40  " style="border-right: 1px solid #e5e3e3c8;">
+                    <div class="flex gap-2 overflow-y-auto">
+                        {{#if this.isAdmin}}
+                        Yes
+                        {{else}}
+                        No
+                        {{/if}}
+                    </div>
+                </td>
+                <td class="px-6 py-4  w-40  " style="border-right: 1px solid #e5e3e3c8;">
+                    <div class="flex gap-2 overflow-y-auto">
+                        ***************
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
