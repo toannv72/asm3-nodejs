@@ -19,6 +19,18 @@ app.engine('hbs', handlebars.engine({
     // tạo công thức
     helpers: {
         sun: (a, b) => a + b,
+        rank:(a) =>{
+            var element=0
+            for (let index = 0; index < a.length; index++) {
+                 element =element+ a[index].rating;
+            }
+            element= element/(a.length)
+            if (element) {
+                return element
+            } else {
+                return 'chưa có'
+            }
+        },
         checkLogin: (login) => {
             if (login) {
                 return (

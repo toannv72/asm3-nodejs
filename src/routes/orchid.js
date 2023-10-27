@@ -13,6 +13,9 @@ routerOrchid
 routerOrchid
     .delete('/:id', cookieAuthenticated, authenticatedAdmin, routerTableController.delete)
 
+routerOrchid.route("/search")
+    .get(cookieAuthenticated, authenticatedAdmin, routerTableController.search)
+
 routerOrchid.route("/")
     .get(cookieAuthenticated, authenticatedAdmin, routerTableController.show)
     .post(cookieAuthenticated, authenticatedAdmin, routerTableController.post)

@@ -76,7 +76,7 @@ class AccountController {
 
     showAll(req, res, next) {
 
-        User.find()
+        User.find({isAdmin:"false"})
             .then((account) => {
                 return res.render('view/accountAdmin',
                     {

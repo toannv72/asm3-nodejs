@@ -16,6 +16,9 @@
                     {{FunCategory this._id ../Orchid.category this.categoryName }}
                     {{/each}}
                 </p>
+                <p class="flex">Rank: {{rank Orchid.comments }}<svg xmlns="http://www.w3.org/2000/svg" fill="#FFD700" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12 2l2.4 7.5h7.6l-6 4.8 2.4 7.5-6-4.8-6 4.8 2.4-7.5-6-4.8h7.6z" />
+                </svg></p>
             </div>
 
             <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-0 xl:mx-4 xl:w-1/2 md:grid-cols-1">
@@ -25,7 +28,7 @@
     </div>
 </section>
 
-<form class="{{#if login}} {{else}} hidden {{/if}} p-8" method="post" action="/orchid/comments/{{Orchid._id}}" >
+<form class="{{#if login}} {{else}} hidden {{/if}} {{#if admin}} hidden {{else}}  {{/if}} p-8" method="post" action="/orchid/comments/{{Orchid._id}}" >
     <div class="flex items-center space-x-2">
         <span class="text-xl">Rate:</span>
         <div class="flex flex-col justify-center p-2">
@@ -50,16 +53,16 @@
         </div>
     </div>
     <label for="star1" class="text-center">Comments</label>
-    <textarea required minlength="1" rows="4" name="comment" id="description" placeholder="Type your Comments"
-        class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"></textarea>
+    <textarea required  rows="4" name="comment" id="description" placeholder="Type your Comments"
+        class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none "></textarea>
     <button type="submit"
         class="btn btn-primary hover:shadow-form rounded-md  py-3 px-8 text-base font-semibold text-white ">
         Comments
     </button>
     </div>
 </form>
-
 <ul role="list" class="divide-y divide-gray-100 p-8">
+<p class="text-red-700">{{error}}</p>
     {{#each Orchid.comments}}
     <li class="flex justify-between gap-x-6 py-5">
         <div class="flex min-w-0 gap-x-4">
