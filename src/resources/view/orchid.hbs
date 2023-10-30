@@ -15,7 +15,7 @@
                 <label class="mb-3 block text-base font-medium text-[#07074D]">
                     Name
                 </label>
-                <input required value="{{input.name}}" type="text" name="name" id="name" placeholder="Full Name"
+                <input required value="{{input.name}}" type="text" name="name" id="name" placeholder="Full Name" oninput="capitalizeFirstLetter(this)"
                     minlength="1" maxlength="1000"
                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                 <p class="text-red-500 ">{{errorMessageName}}</p>
@@ -261,7 +261,7 @@
                                                                     class="mb-3 block text-base font-medium text-[#07074D]">
                                                                     Name
                                                                 </label>
-                                                                <input required value="{{this.name}}" type="text"
+                                                                <input required value="{{this.name}}" type="text" oninput="capitalizeFirstLetter(this)"
                                                                     name="name" id="name" placeholder="Full Name"
                                                                     minlength="1" maxlength="1000"
                                                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
@@ -318,9 +318,9 @@
                                                                     Is Natural?
                                                                 </label>
                                                                 <div class="custom-control custom-radio">
-                                                                    <input value="false" checked
-                                                                      type="radio" id="{{this._id}}"
-                                                                        name="isNatural" class="custom-control-input">
+                                                                    <input value="false" checked type="radio"
+                                                                        id="{{this._id}}" name="isNatural"
+                                                                        class="custom-control-input">
                                                                     <label class="custom-control-label"
                                                                         for="{{this._id}}">NO</label>
                                                                 </div>
@@ -386,11 +386,19 @@
 
         <form method="post" name="delete-from">
         </form>
-
+        <script>
+            function capitalizeFirstLetter(input) {
+                var value = input.value;
+                var words = value.split(" ");
+                for (var i = 0; i < words.length; i++) {
+                    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+                }
+                input.value = words.join(" ");
+            }
+        </script> 
         <script>
 
             document.addEventListener('DOMContentLoaded', function () {
-
                 var courseId;
                 var deleteFrom = document.forms['delete-from']
                 var btnDelete = document.getElementById('btn-delete')

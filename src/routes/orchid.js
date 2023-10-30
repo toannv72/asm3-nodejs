@@ -6,6 +6,9 @@ const { authenticatedAdmin } = require('../config/db/authenticatedAdmin')
 
 
 
+routerOrchid.route("/comment/:orchidID/:commentId")
+    .delete(cookieAuthenticated, routerTableController.deleteComments)
+
 routerOrchid.route("/comments/:id")
     .post(cookieAuthenticated, routerTableController.comments)
 routerOrchid

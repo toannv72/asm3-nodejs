@@ -224,6 +224,18 @@ class OrchidController {
             .catch(next)
     }
 
+    deleteComments(req, res, next) {
+        
+        Orchid.findById(req.params.orchidID)
+            .then((Orchids => {
+                Orchids.comments.id(req.params.commentId).remove()
+                Orchids.save();
+                res.redirect(`/orchid/${req.params.orchidID}`)
+            }
+            ))
+            .catch(next)
+    }
+
     show(req, res, next) {
         Categories.find()
             .then((categories) => {

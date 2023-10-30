@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
+const MongooseDelete = require('mongoose-delete');
 const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
 const mongoosePaginate = require('mongoose-paginate-v2');
 
 const commentSchema = new Schema({
@@ -19,6 +19,7 @@ const orchidSchema = new Schema({
     category: { type: mongoose.Schema.Types.ObjectId, ref: "Categories", require: true },
 }, { timestamps: true, });
 
+commentSchema.plugin(MongooseDelete, { deletedAt: true, overrideMethods: 'all' });
 orchidSchema.plugin(mongoosePaginate);
 module.exports = mongoose.model('orchid', orchidSchema);
 

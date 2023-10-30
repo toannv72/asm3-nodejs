@@ -48,7 +48,7 @@ class homeControllers {
 
     getOne(req, res, next) {
         var checkTokenValid = jwt.verify(req?.cookies?.accessToken, Token.refreshToken);
-        if (checkTokenValid.user.isAdmin) {
+        if (checkTokenValid?.user?.isAdmin) {
             User.find()
                 .then((User) => {
                     Categories.find()
