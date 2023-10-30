@@ -6,7 +6,7 @@ const mongoosePaginate = require('mongoose-paginate-v2');
 const commentSchema = new Schema({
     rating: { type: Number, min: 1, max: 5, require: true },
     comment: { type: String, require: true },
-    author: { type: mongoose.Schema.Types.ObjectId, ref: "user", require: true,unique: true, }
+    author: { type: mongoose.Schema.Types.ObjectId, ref: "user", require: true, }
 },
     { timestamps: true }
 )
