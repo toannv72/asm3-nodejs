@@ -50,49 +50,7 @@
     {{errorPutName}}
 </div>
 
-{{!-- <section x-data="{modalOpenCreate: false}">
-    <button class="btn btn-outline-success  my-sm-0 " @click="modalOpenCreate = true" style="margin: 10px!important;"
-        type="submit">Create Category</button>
-    <div x-show="modalOpenCreate" x-transition
-        class="fixed top-0 left-0 flex min-h-screen w-full items-center z-30 justify-center bg-black bg-opacity-90 px-4 py-5">
-        <div @click.outside="modalOpenCreate = true"
-            class="w-3/4 h-5/6  rounded-lg  bg-white py-8 px-8 text-center md:py-[60px] md:px-[70px]">
-            <div class="flex justify-end mb-2">
-                <button @click="modalOpenCreate = false"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                        viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                        <path
-                            d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
-                    </svg></button>
-            </div>
-            <div class="flex items-center justify-center  ">
 
-                <div class="mx-auto  w-full   ">
-                    <form method="post" action="/category">
-                        <div class="flex items-center justify-center overflow-y-auto ">
-                            <div class=" mx-auto  w-full  max-w-[550px] ">
-                                <div class="mb-5 flex flex-col items-start">
-                                    <label class="mb-3 block text-base font-medium text-[#07074D]">
-                                        Category Name
-                                    </label>
-                                    <input required type="text" name="categoryName" id="categoryName"
-                                        placeholder="Full Category Name" minlength="1" maxlength="1000"
-                                        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-4">
-                            <button type="submit"
-                                class="btn btn-primary hover:shadow-form rounded-md  py-3 px-8 text-base font-semibold text-white ">
-                                Submit
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> --}}
 <div class="flex flex-col md:flex-row">
     <div class="flex flex-col p-4 md:w-1/2 order-1 md:order-2 mb-4 md:mb-0">
         <form method="post" action="/category">
@@ -103,7 +61,7 @@
                             Category Name
                         </label>
                         <input required type="text" name="categoryName" id="categoryName"
-                            placeholder="Full Category Name" minlength="1" maxlength="1000"
+                             minlength="1" maxlength="1000"
                             class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         <p class="text-red-500 ">{{errorMessage}}</p>
 
@@ -113,17 +71,17 @@
 
             <div class="p-4">
                 <button type="submit"
-                    class="btn btn-primary hover:shadow-form rounded-md  py-3 px-8 text-base font-semibold text-white ">
+                    class="btn bg-black btn-primary  rounded-md  py-3 px-8 text-base font-semibold text-white ">
                     Submit
                 </button>
             </div>
         </form>
 
     </div>
-    <table class="w-screen border-collapse bg-white text-left text-sm text-gray-500 ">
-        <thead class="bg-gray-300">
+    <table class="w-screen border-collapse bg-white text-left text-sm  ">
+        <thead class="bg-black">
             <tr class="w-screen">
-                <th style="border: 1px solid #a1a1a145;" scope="col" class="px-6 py-4 font-medium text-gray-900">Name
+                <th style="border: 1px solid #a1a1a145;" scope="col" class="px-6 py-4 font-medium  text-white">Name
                 </th>
 
                 <th style="border: 1px solid #a1a1a145;" scope="col" class="w-8 px-6 py-4 font-medium text-gray-900"></th>
@@ -145,7 +103,7 @@
                     <div class="flex justify-center gap-4 ">
                         <section x-data="{modalOpen: false}">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                <button class="btn  bg-black btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Action
                                 </button>
@@ -199,7 +157,7 @@
                                                             </label>
                                                             <input required value="{{this.categoryName}}" type="text"
                                                                 name="categoryName" id="categoryName"
-                                                                placeholder="Full Category Name" minlength="1"
+                                                                 minlength="1"
                                                                 maxlength="1000"
                                                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                                         </div>
@@ -207,7 +165,7 @@
                                                 </div>
                                                 <div class="p-4">
                                                     <button type="submit"
-                                                        class="btn btn-primary hover:shadow-form rounded-md  py-3 px-8 text-base font-semibold text-white ">
+                                                        class="btn bg-black btn-primary  rounded-md  py-3 px-8 text-base font-semibold text-white ">
                                                         Submit
                                                     </button>
                                                 </div>

@@ -57,6 +57,57 @@ class homeControllers {
                                 try {
                                     Orchid.findById(req.params.id)
                                         .then((Orchids => {
+                                            if (Orchids) {
+                                              
+                                                res.render('view/showOne',
+                                                    {
+                                                        Orchid: mongoosesToObject(Orchids),
+                                                        login: true,
+                                                        Categories: mutipleMongooseToObject(categories),
+                                                        User: mutipleMongooseToObject(User),
+                                                        admin: true,
+                                                    })
+                                            } else {
+                                              
+                                                res.status(404).render('view/Error404',
+                                                    {
+                                                        login: true,
+                                                    })
+
+                                            }
+                                        }
+                                        ))
+                                        .catch(next)
+                                } catch (err) {
+                                    Orchid.findById(req.params.id)
+                                        .then((Orchids => {
+                                            if (Orchids) {
+                                              
+                                                res.render('view/showOne',
+                                                    {
+                                                        Orchid: mongoosesToObject(Orchids),
+                                                        login: true,
+                                                        Categories: mutipleMongooseToObject(categories),
+                                                        User: mutipleMongooseToObject(User),
+                                                        admin: true,
+                                                    })
+                                            } else {
+                                              
+                                                res.status(404).render('view/Error404',
+                                                    {
+                                                        login: true,
+                                                    })
+
+                                            }
+                                        }
+                                        ))
+                                        .catch(next)
+                                }
+                            } else {
+                                Orchid.findById(req.params.id)
+                                    .then((Orchids => {
+                                        if (Orchids) {
+                                              
                                             res.render('view/showOne',
                                                 {
                                                     Orchid: mongoosesToObject(Orchids),
@@ -65,33 +116,14 @@ class homeControllers {
                                                     User: mutipleMongooseToObject(User),
                                                     admin: true,
                                                 })
-                                        }
-                                        ))
-                                        .catch(next)
-                                } catch (err) {
-                                    Orchid.findById(req.params.id)
-                                        .then((Orchids => {
-                                            res.render('view/showOne',
+                                        } else {
+                                          
+                                            res.status(404).render('view/Error404',
                                                 {
-                                                    Orchid: mongoosesToObject(Orchids),
-                                                    Categories: mutipleMongooseToObject(categories),
-                                                    User: mutipleMongooseToObject(User),
-                                                    admin: true,
+                                                    login: true,
                                                 })
+
                                         }
-                                        ))
-                                        .catch(next)
-                                }
-                            } else {
-                                Orchid.findById(req.params.id)
-                                    .then((Orchids => {
-                                        res.render('view/showOne',
-                                            {
-                                                Orchid: mongoosesToObject(Orchids),
-                                                Categories: mutipleMongooseToObject(categories),
-                                                User: mutipleMongooseToObject(User),
-                                                admin: true,
-                                            })
                                     }))
                                     .catch(next)
                             }
@@ -106,26 +138,48 @@ class homeControllers {
                                 try {
                                     Orchid.findById(req.params.id)
                                         .then((Orchids => {
+                                            if (Orchids) {
+                                              
                                             res.render('view/showOne',
-                                                {
-                                                    Orchid: mongoosesToObject(Orchids),
-                                                    login: true,
-                                                    Categories: mutipleMongooseToObject(categories),
-                                                    User: mutipleMongooseToObject(User),
+                                            {
+                                                Orchid: mongoosesToObject(Orchids),
+                                                login: true,
+                                                Categories: mutipleMongooseToObject(categories),
+                                                User: mutipleMongooseToObject(User),
 
-                                                })
+                                            })
+                                            } else {
+                                              
+                                                res.status(404).render('view/Error404',
+                                                    {
+                                                        login: true,
+                                                    })
+
+                                            }
                                         }
                                         ))
                                         .catch(next)
                                 } catch (err) {
                                     Orchid.findById(req.params.id)
                                         .then((Orchids => {
-                                            res.render('view/showOne',
+                                            if (Orchids) {
+                                              
+                                                res.render('view/showOne',
                                                 {
                                                     Orchid: mongoosesToObject(Orchids),
+                                                    login: true,
                                                     Categories: mutipleMongooseToObject(categories),
-                                                    User: mutipleMongooseToObject(User)
+                                                    User: mutipleMongooseToObject(User),
+    
                                                 })
+                                                } else {
+                                                  
+                                                    res.status(404).render('view/Error404',
+                                                        {
+                                                            login: true,
+                                                        })
+    
+                                                }
                                         }
                                         ))
                                         .catch(next)
@@ -133,12 +187,24 @@ class homeControllers {
                             } else {
                                 Orchid.findById(req.params.id)
                                     .then((Orchids => {
-                                        res.render('view/showOne',
+                                        if (Orchids) {
+                                              
+                                            res.render('view/showOne',
                                             {
                                                 Orchid: mongoosesToObject(Orchids),
+                                                login: true,
                                                 Categories: mutipleMongooseToObject(categories),
-                                                User: mutipleMongooseToObject(User)
+                                                User: mutipleMongooseToObject(User),
+
                                             })
+                                            } else {
+                                              
+                                                res.status(404).render('view/Error404',
+                                                    {
+                                                        login: true,
+                                                    })
+
+                                            }
                                     }))
                                     .catch(next)
                             }

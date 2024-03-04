@@ -5,7 +5,7 @@
 <form class="form-inline my-2 my-lg-0 p-3" action="/orchid/search?name" method="get">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="name"
         value="{{search}}">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <button class="btn text-white bg-black btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 </form>
 <div class="flex flex-col md:flex-row">
 
@@ -15,7 +15,7 @@
                 <label class="mb-3 block text-base font-medium text-[#07074D]">
                     Name
                 </label>
-                <input required value="{{input.name}}" type="text" name="name" id="name" placeholder="Full Name" oninput="capitalizeFirstLetter(this)"
+                <input required value="{{input.name}}" type="text" name="name" id="name" oninput="capitalizeFirstLetter(this)"
                     minlength="1" maxlength="1000"
                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                 <p class="text-red-500 ">{{errorMessageName}}</p>
@@ -37,7 +37,7 @@
                 <label class="mb-3 block text-base font-medium text-[#07074D]">
                     origin
                 </label>
-                <input required value="{{input.origin}}" type="text" name="origin" id="origin" placeholder="Origin"
+                <input required value="{{input.origin}}" type="text" name="origin" id="origin"
                     min="0"
                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
 
@@ -46,7 +46,7 @@
                 <label class="mb-3 block text-base font-medium text-[#07074D]">
                     Image
                 </label>
-                <input required value="{{input.image}}" type="text" name="image" id="image" placeholder="Url image"
+                <input required value="{{input.image}}" type="text" name="image" id="image"
                     minlength="1" maxlength="1000"
                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
 
@@ -126,20 +126,20 @@
         </style>
         <div class="overflow-y-auto ">
             <table class="w-full border-collapse bg-white text-left text-sm text-gray-500 ">
-                <thead class="bg-gray-300">
+                <thead class="bg-black">
                     <tr class="">
                         <th style="border: 1px solid #a1a1a145;" scope="col"
-                            class="px-6 py-4 font-medium text-gray-900">image</th>
+                            class="px-6 py-4 font-medium text-white">image</th>
                         <th style="border: 1px solid #a1a1a145;" scope="col"
-                            class="px-6 py-4 font-medium text-gray-900">Name</th>
+                            class="px-6 py-4 font-medium text-white">Name</th>
                         <th style="border: 1px solid #a1a1a145;" scope="col"
-                            class="px-6 py-4 font-medium text-gray-900">origin</th>
+                            class="px-6 py-4 font-medium text-white">origin</th>
                         <th style="border: 1px solid #a1a1a145;" scope="col"
-                            class="px-6 py-4 font-medium text-gray-900">rank</th>
+                            class="px-6 py-4 font-medium text-white">rank</th>
                         <th style="border: 1px solid #a1a1a145;" scope="col"
-                            class="px-6 py-4 font-medium text-gray-900">category</th>
+                            class="px-6 py-4 font-medium text-white">category</th>
                         <th style="border: 1px solid #a1a1a145;" scope="col"
-                            class="px-6 py-4 font-medium text-gray-900">Natural</th>
+                            class="px-6 py-4 font-medium text-white">Natural</th>
                         <th style="border: 1px solid #a1a1a145;" scope="col" class=""></th>
                     </tr>
                 </thead>
@@ -210,7 +210,7 @@
 
                                 <section x-data="{modalOpen: false}">
                                     <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        <button class=" bg-black btn btn-secondary dropdown-toggle" type="button"
                                             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
                                             Action
@@ -262,7 +262,7 @@
                                                                     Name
                                                                 </label>
                                                                 <input required value="{{this.name}}" type="text" oninput="capitalizeFirstLetter(this)"
-                                                                    name="name" id="name" placeholder="Full Name"
+                                                                    name="name" id="name" 
                                                                     minlength="1" maxlength="1000"
                                                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                                             </div>
@@ -296,7 +296,7 @@
                                                                     origin
                                                                 </label>
                                                                 <input required value="{{this.origin}}" type="text"
-                                                                    name="origin" id="origin" placeholder="Origin"
+                                                                    name="origin" id="origin" 
                                                                     min="0"
                                                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
 
@@ -307,7 +307,7 @@
                                                                     Image
                                                                 </label>
                                                                 <input required value="{{this.image}}" type="text"
-                                                                    name="image" id="image" placeholder="Url image"
+                                                                    name="image" id="image"
                                                                     minlength="1" maxlength="1000"
                                                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
 

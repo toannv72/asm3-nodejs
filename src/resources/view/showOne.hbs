@@ -1,6 +1,10 @@
 <section class="bg-white dark:bg-gray-900">
     <div class="container px-6 py-10 mx-auto">
         <div class="xl:flex xl:items-center xL:-mx-4">
+            
+            <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-0 xl:mx-4 xl:w-1/2 md:grid-cols-1">
+                <img class="object-cover rounded-xl h-96 w-full" src="{{Orchid.image}}" alt="">
+            </div>
             <div class="xl:w-1/2 xl:mx-4">
                 <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">{{Orchid.name}}
                 </h1>
@@ -20,16 +24,7 @@
                         width="24" height="24" viewBox="0 0 24 24">
                         <path d="M12 2l2.4 7.5h7.6l-6 4.8 2.4 7.5-6-4.8-6 4.8 2.4-7.5-6-4.8h7.6z" />
                     </svg></p>
-            </div>
-
-            <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-0 xl:mx-4 xl:w-1/2 md:grid-cols-1">
-                <img class="object-cover rounded-xl h-64 w-full" src="{{Orchid.image}}" alt="">
-            </div>
-        </div>
-    </div>
-</section>
-
-<form class="{{#if login}} {{else}} hidden {{/if}} {{#if admin}} hidden {{else}}  {{/if}} p-8" method="post"
+                    <form class="{{#if login}} {{else}} hidden {{/if}} {{#if admin}} hidden {{else}}  {{/if}} p-8" method="post"
     action="/orchid/comments/{{Orchid._id}}">
     <div class="flex items-center space-x-2">
         <span class="text-xl">Rate:</span>
@@ -54,15 +49,24 @@
             <input checked type="radio" id="star5" name="rating" value="5" />
         </div>
     </div>
-    <label for="star1" class="text-center">Comments</label>
+    
     <textarea required rows="4" name="comment" id="description" placeholder="Type your Comments"
         class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none "></textarea>
-    <button type="submit"
-        class="btn btn-primary hover:shadow-form rounded-md  py-3 px-8 text-base font-semibold text-white ">
-        Comments
-    </button>
+   <div class="flex justify-end">
+        <button type="submit"
+            class="btn  btn-primary hover:shadow-form rounded-md  py-3 px-8 text-base font-semibold text-white ">
+            Comments
+        </button>
+   </div>
     </div>
 </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
 <ul role="list" class="divide-y divide-gray-100 p-8">
     <p class="text-red-700">{{error}}</p>
     {{#each Orchid.comments}}
@@ -77,9 +81,9 @@
                     {{#each ../User}}
                     {{FunCategory ../this.author this._id this.name}}
                     {{/each }}
-                    <button data-id="{{../Orchid._id}}/{{this._id}}" 
-                    class="{{#if ../admin}} {{else}}hidden {{/if}}" data-target="#exampleModal"
-                     data-toggle="modal" type="button" style="color: red;">delete <button/>
+                    <button data-id="{{../Orchid._id}}/{{this._id}}" class="{{#if ../admin}} {{else}}hidden {{/if}}"
+                        data-target="#exampleModal" data-toggle="modal" type="button" style="color: red;">delete
+                        <button />
                 </div>
                 </p>
 
