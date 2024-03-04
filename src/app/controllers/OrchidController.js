@@ -63,7 +63,8 @@ class OrchidController {
                                 Orchid: mutipleMongooseToObject(data.docs),
                                 login: true,
                                 totalPages: data.totalPages,
-                                page: result.totalPages,
+                                    admin: true,
+                                    page: result.totalPages,
                                 prevPage: data.prevPage,
                                 nextPage: data.nextPage,
                                 totalDocs: data.totalDocs,
@@ -80,7 +81,8 @@ class OrchidController {
                             login: true,
                             totalPages: result.totalPages,
                             page: result.page,
-                            prevPage: result.prevPage,
+                                    admin: true,
+                                    prevPage: result.prevPage,
                             nextPage: result.nextPage,
                             totalDocs: result.totalDocs,
                             search: formData
@@ -92,29 +94,6 @@ class OrchidController {
 
     }
 
-    // comments(req, res, next) {
-    //     try {
-    //         const orchidId = req.params.id;
-    //         const { rating, comment } = req.body;
-    //         var checkTokenValid = jwt.verify(req.cookies.accessToken, Token.refreshToken);
-    //         // Tạo một comment mới
-    //         const newComment = {
-    //             rating: rating,
-    //             comment: comment,
-    //             author: checkTokenValid.user._id,
-    //         };
-
-    //         // Tìm và cập nhật thông tin của orchid với id tương ứng
-    //         Orchid.findById(orchidId)
-    //             .then((data) => {
-    //                 data.comments.push(newComment);
-    //                 data.save();
-    //             })
-    //         res.redirect(`/orchid/${orchidId}`)
-    //     } catch (error) {
-    //         res.status(500).json({ error: error.message });
-    //     }
-    // }
     comments(req, res, next) {
         try {
             const orchidId = req.params.id;
@@ -181,7 +160,8 @@ class OrchidController {
                                             res.render('view/orchid',
                                                 {
                                                     Orchid: mutipleMongooseToObject(players),
-                                                    login: true,
+                                    admin: true,
+                                    login: true,
                                                     errorPutName: `${name} name is already on the board`,
                                                     Categories: mutipleMongooseToObject(categories)
                                                 })
@@ -225,7 +205,7 @@ class OrchidController {
     }
 
     deleteComments(req, res, next) {
-        
+
         Orchid.findById(req.params.orchidID)
             .then((Orchids => {
                 Orchids.comments.id(req.params.commentId).remove()
@@ -245,7 +225,8 @@ class OrchidController {
                         return res.render('view/orchid',
                             {
                                 Orchid: mutipleMongooseToObject(Orchids),
-                                login: true,
+                                    admin: true,
+                                    login: true,
                                 Categories: mutipleMongooseToObject(categories)
                             })
                     })
@@ -255,7 +236,6 @@ class OrchidController {
     }
     post(req, res, next) {
         const { name } = req.body
-        console.log(1111111111, req.body);
         Categories.find()
             .then((categories) => {
                 Orchid.findOne({ name: name })
@@ -268,7 +248,8 @@ class OrchidController {
                                             Orchid: mutipleMongooseToObject(nations),
                                             input: req.body,
                                             errorMessageName: `${name} name is already on the board`,
-                                            login: true,
+                                    admin: true,
+                                    login: true,
                                             Categories: mutipleMongooseToObject(categories)
                                         })
                                 }

@@ -16,6 +16,7 @@ class CategoryController {
                                     res.render('view/categories',
                                         {
                                             Categories: mutipleMongooseToObject(players),
+                                            admin: true,
                                             login: true,
                                             errorPutName: `${categoryName} name is already on the board`,
                                         })
@@ -57,6 +58,7 @@ class CategoryController {
                                     Categories: mutipleMongooseToObject(Categories),
                                     input: req.body,
                                     errorPutName: `không thể xóa vì đã có cây lan có trường này`,
+                                    admin: true,
                                     login: true,
                                 })
                         })
@@ -78,6 +80,7 @@ class CategoryController {
                 return res.render('view/categories',
                     {
                         Categories: mutipleMongooseToObject(Categories),
+                        admin: true,
                         login: true,
                     })
             })
@@ -95,6 +98,7 @@ class CategoryController {
                                     Categories: mutipleMongooseToObject(nations),
                                     input: req.body,
                                     errorMessage: `${categoryName} Name is already on the board`,
+                                    admin: true,
                                     login: true,
                                 })
                         }

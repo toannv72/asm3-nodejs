@@ -52,7 +52,7 @@ class AccountController {
                             })
 
                     } else {
-                        console.log(1111111111,checkTokenValid.user._id);
+                 
 
                         User.findById(checkTokenValid.user._id)
                         .then((account) => {
@@ -81,6 +81,7 @@ class AccountController {
                 return res.render('view/accountAdmin',
                     {
                         account: mutipleMongooseToObject(account),
+                        admin: true,
                         login: true,
                     })
             })
